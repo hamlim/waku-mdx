@@ -3,10 +3,15 @@ import { Link } from "waku";
 import fsPromises from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { Container } from "../components/ui/container";
 import { Heading } from "../components/ui/heading";
 import { useMDXComponents } from "../mdx-components";
 import { transformMDX } from "../transform-mdx";
+
+let formatter = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "long",
+  timeStyle: "short",
+  timeZone: "America/New_York",
+}).format;
 
 export default async function BlogPage({ slug }: { slug: string }) {
   try {
@@ -24,26 +29,30 @@ export default async function BlogPage({ slug }: { slug: string }) {
       tags: string[];
     }>({
       content,
+      // @ts-expect-error - TODO: fix this
       useMDXComponents,
     });
 
     return (
       <main>
-        <Container>
-          <Heading level={1}>{frontmatter.title}</Heading>
-          <Component />
-          <hr />
-          <p>
-            Published on{" "}
-            {new Date(frontmatter.publishDate).toLocaleDateString()}
-          </p>
-          <ul>
-            {frontmatter.tags.map((tag: string) => (
-              <li key={tag}>{tag}</li>
+        <Heading level={1}>{frontmatter.title}</Heading>
+        <hr className="my-4" />
+        <div className="text-slate-500">
+          <p>Published on {formatter(new Date(frontmatter.publishDate))}</p>
+          <p>Tags:</p>
+          <ul className="flex flex-wrap gap-2 mx-4">
+            {frontmatter.tags.map((tag: string, idx, arr) => (
+              <li key={tag}>
+                {tag}
+                {idx < arr.length - 1 ? "," : ""}
+              </li>
             ))}
           </ul>
-          <Link to="/">Back to home</Link>
-        </Container>
+        </div>
+        <hr className="my-4" />
+        <Component />
+        <hr className="my-4" />
+        <Link to="/">Back to home</Link>
       </main>
     );
   } catch (error) {

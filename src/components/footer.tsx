@@ -2,16 +2,16 @@ export const Footer = () => {
   return (
     <footer className="p-6 lg:fixed lg:bottom-0 lg:left-0">
       <div>
-        visit{' '}
+        Made by{" "}
         <a
-          href="https://waku.gg/"
+          href="https://matthamlin.me"
           target="_blank"
           rel="noreferrer"
-          className="mt-4 inline-block underline"
+          className="mt-4 inline-block underline text-primary"
         >
-          waku.gg
-        </a>{' '}
-        to learn more
+          Matt
+        </a>
+        .
       </div>
     </footer>
   );
