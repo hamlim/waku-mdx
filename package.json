@@ -16,6 +16,7 @@
     "framer-motion": "^11.11.13",
     "input-otp": "^1.4.1",
     "justd-icons": "^1.7.4",
+    "kanapa": "0.1.2",
     "react": "19.0.0-rc-5c56b873-20241107",
     "react-aria-components": "^1.4.1",
     "react-dom": "19.0.0-rc-5c56b873-20241107",
@@ -24,6 +25,7 @@
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.0",
     "remark-mdx-frontmatter": "^5.0.0",
+    "shiki": "^1.22.2",
     "sonner": "^1.7.0",
     "waku": "0.21.6",
     "yaml": "^2.6.0"

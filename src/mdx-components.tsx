@@ -1,16 +1,13 @@
-import { type BrightProps, Code } from "bright";
+// import { MDXCode } from "kanapa";
 import { Children } from "react";
 import { Checkbox } from "./components/ui/checkbox";
 import { Heading } from "./components/ui/heading";
 import { Link } from "./components/ui/link";
+import { MDXCode } from "./kanapa";
 
 export function useMDXComponents() {
   return {
-    pre: (props: BrightProps) => (
-      <div suppressHydrationWarning>
-        <Code {...props} />
-      </div>
-    ),
+    pre: MDXCode,
     h1: (props: React.ComponentPropsWithoutRef<"h1">) => (
       <Heading level={1} {...props} />
     ),
