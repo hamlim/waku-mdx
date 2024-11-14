@@ -3,9 +3,9 @@ import { Link } from "waku";
 import fsPromises from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { Heading } from "../components/ui/heading";
-import { useMDXComponents } from "../mdx-components";
-import { transformMDX } from "../transform-mdx";
+import { Heading } from "../../components/ui/heading";
+import { useMDXComponents } from "../../mdx-components";
+import { transformMDX } from "../../transform-mdx";
 
 let formatter = new Intl.DateTimeFormat("en-US", {
   dateStyle: "long",

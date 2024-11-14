@@ -1,0 +1,13 @@
+diff --git a/dist/index.mjs b/dist/index.mjs
+index b39a15cbf8bc5e43ac9b2a4a3c3e074357c69835..c4352f5d05979338524d75ad55d5e5d9421567ac 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -1,7 +1,7 @@
++export * from '@shikijs/core';
+ export { codeToHast, codeToHtml, codeToTokens, codeToTokensBase, codeToTokensWithThemes, createHighlighter, getHighlighter, getLastGrammarState, getSingletonHighlighter } from './bundle-full.mjs';
+ export { createJavaScriptRegexEngine, defaultJavaScriptRegexConstructor } from '@shikijs/engine-javascript';
+ export { createOnigurumaEngine, loadWasm } from '@shikijs/engine-oniguruma';
+ export { g as getWasmInlined } from './wasm-dynamic-K7LwWlz7.js';
+-export * from '@shikijs/core';
+ export { bundledLanguages, bundledLanguagesAlias, bundledLanguagesBase, bundledLanguagesInfo } from './langs.mjs';
+ export { bundledThemes, bundledThemesInfo } from './themes.mjs';

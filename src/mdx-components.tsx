@@ -1,9 +1,16 @@
-// import { MDXCode } from "kanapa";
+import { MDXCode, updateConfig } from "kanapa";
 import { Children } from "react";
 import { Checkbox } from "./components/ui/checkbox";
 import { Heading } from "./components/ui/heading";
 import { Link } from "./components/ui/link";
-import { MDXCode } from "./kanapa";
+
+updateConfig({
+  themes: {
+    dark: "vitesse-dark",
+    light: "vitesse-light",
+  },
+  selectors: "system",
+});
 
 export function useMDXComponents() {
   return {
