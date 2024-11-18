@@ -1,6 +1,6 @@
 import { MDXCode, updateConfig } from "kanapa";
 import { Children } from "react";
-import { Checkbox } from "./components/ui/checkbox";
+// import { Checkbox } from "./components/ui/checkbox";
 import { Heading } from "./components/ui/heading";
 import { Link } from "./components/ui/link";
 
@@ -41,14 +41,21 @@ export function useMDXComponents() {
             checkbox?.props ?? {};
           return (
             <li className="list-disc flex items-center gap-2" {...props}>
-              <Checkbox
+              <input
+                type="checkbox"
+                checked={checked}
+                disabled
+                {...checkboxProps}
+              />
+              <label>{rest}</label>
+              {/* <Checkbox
                 {...checkboxProps}
                 isDisabled
                 isIndeterminate={indeterminate}
                 isSelected={checked}
               >
                 <div>{rest}</div>
-              </Checkbox>
+              </Checkbox> */}
             </li>
           );
         }
@@ -60,6 +67,7 @@ export function useMDXComponents() {
       switch (props.type) {
         case "checkbox":
           // @ts-expect-error - TODO: fix this
+          return <input type="checkbox" {...props} />;
           return <Checkbox {...props} />;
         default:
           return <input {...props} />;

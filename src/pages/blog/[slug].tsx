@@ -3,6 +3,7 @@ import { Link } from "waku";
 import fsPromises from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { getContextData } from "waku/middleware/context";
 import { Heading } from "../../components/ui/heading";
 import { useMDXComponents } from "../../mdx-components";
 import { transformMDX } from "../../transform-mdx";
@@ -14,13 +15,26 @@ let formatter = new Intl.DateTimeFormat("en-US", {
 }).format;
 
 export default async function BlogPage({ slug }: { slug: string }) {
+  // let context = getContextData();
+
+  // console.log(import.meta.env);
+  // console.log(import.meta.url);
+  // console.log(path.dirname(fileURLToPath(import.meta.url)));
+
   try {
+    // let content = await (await fetch(`./public/blog/${slug}.mdx`)).text();
+    // let content = await (
+    //   await context.__hono_context.env.ASSETS.fetch(`http://n/blog/${slug}.mdx`)
+    // ).text();
+
     let content = await fsPromises.readFile(
-      path.join(
-        path.dirname(fileURLToPath(import.meta.url)),
-        "../private",
-        `${slug}.mdx`,
-      ),
+      // path.join(
+      //   path.dirname(fileURLToPath(import.meta.url)),
+      //   "../../private",
+      //   `${slug}.mdx`,
+      // ),
+      // `../../private/${slug}.mdx`,
+      `./public/blog/${slug}.mdx`,
       "utf8",
     );
     const { Component, frontmatter } = await transformMDX<{
@@ -31,6 +45,13 @@ export default async function BlogPage({ slug }: { slug: string }) {
       content,
       // @ts-expect-error - TODO: fix this
       useMDXComponents,
+    });
+
+    console.log({
+      Component,
+      frontmatter,
+      componentTypeof: typeof Component,
+      frontmatterTypeof: typeof frontmatter,
     });
 
     return (
