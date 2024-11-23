@@ -1,3 +1,19 @@
+diff --git a/dist/bundle-full.mjs b/dist/bundle-full.mjs
+index 6ca9519ac1cc003592d92f58a7d653414164e602..8d7a8f165fd8cc0b644b0cee361fa03ce1626d77 100644
+--- a/dist/bundle-full.mjs
++++ b/dist/bundle-full.mjs
+@@ -1,10 +1,10 @@
++export * from '@shikijs/core';
+ import { bundledLanguages } from './langs.mjs';
+ export { bundledLanguagesAlias, bundledLanguagesBase, bundledLanguagesInfo } from './langs.mjs';
+ import { bundledThemes } from './themes.mjs';
+ export { bundledThemesInfo } from './themes.mjs';
+ export { g as getWasmInlined } from './wasm-dynamic-K7LwWlz7.js';
+ import { createdBundledHighlighter, createSingletonShorthands, warnDeprecated } from '@shikijs/core';
+-export * from '@shikijs/core';
+ import { createOnigurumaEngine } from '@shikijs/engine-oniguruma';
+ 
+ const createHighlighter = /* @__PURE__ */ createdBundledHighlighter({
 diff --git a/dist/index.mjs b/dist/index.mjs
 index b39a15cbf8bc5e43ac9b2a4a3c3e074357c69835..c4352f5d05979338524d75ad55d5e5d9421567ac 100644
 --- a/dist/index.mjs

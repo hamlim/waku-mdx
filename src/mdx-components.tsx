@@ -1,8 +1,9 @@
 import { MDXCode, updateConfig } from "kanapa";
 import { Children } from "react";
 // import { Checkbox } from "./components/ui/checkbox";
-import { Heading } from "./components/ui/heading";
-import { Link } from "./components/ui/link";
+// import { Heading } from "./components/ui/heading";
+import { Heading } from "./components/heading";
+// import { Link } from "./components/ui/link";
 
 updateConfig({
   themes: {
@@ -30,7 +31,7 @@ export function useMDXComponents() {
     // code: (props: React.ComponentPropsWithoutRef<"kbd">) => (
     //   <Keyboard {...props} keys={props.children} />
     // ),
-    a: Link,
+    // a: Link,
     li: (props: React.ComponentPropsWithoutRef<"li">) => {
       switch (props.className) {
         case "task-list-item": {
@@ -41,13 +42,15 @@ export function useMDXComponents() {
             checkbox?.props ?? {};
           return (
             <li className="list-disc flex items-center gap-2" {...props}>
-              <input
-                type="checkbox"
-                checked={checked}
-                disabled
-                {...checkboxProps}
-              />
-              <label>{rest}</label>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  disabled
+                  {...checkboxProps}
+                />
+                {rest}
+              </label>
               {/* <Checkbox
                 {...checkboxProps}
                 isDisabled
@@ -66,9 +69,8 @@ export function useMDXComponents() {
     input: (props: React.ComponentPropsWithoutRef<"input">) => {
       switch (props.type) {
         case "checkbox":
-          // @ts-expect-error - TODO: fix this
           return <input type="checkbox" {...props} />;
-          return <Checkbox {...props} />;
+        // return <Checkbox {...props} />;
         default:
           return <input {...props} />;
       }

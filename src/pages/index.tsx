@@ -1,7 +1,7 @@
 import { Link } from "waku";
 
-import { Heading } from "../components/ui/heading";
-
+// import { Heading } from "../components/ui/heading";
+import { Heading } from "../components/heading";
 export default async function HomePage() {
   return (
     <div>
